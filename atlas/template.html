@@ -262,7 +262,7 @@ function drawNode(n){
 }
 
 /* ---------------- PACKETS ---------------- */
-function initPackets(){ S.packets=[]; const flows=[...new Set(sceneHops.map(h=>h.flow))]; flows.forEach(f=>S.packets.push({flow:f,hop:0,t:0,speed:.5,pause:0})); S.selPacket=null; }
+function initPackets(){ S.packets=[]; const flows=[...new Set(sceneHops.map(h=>h.flow))]; flows.forEach(f=>S.packets.push({flow:f,hop:0,t:0,speed:.35,pause:0})); S.selPacket=null; }
 function hopsOf(flow){ return sceneHops.filter(h=>h.flow===flow); }
 function drawPackets(){
   const pg=world.querySelector('#pkts'); if(!pg)return; pg.innerHTML='';
@@ -279,7 +279,7 @@ function drawPackets(){
 }
 let last=0;
 function tick(ts){ const dt=Math.min(.05,(ts-last)/1000||0); last=ts; tweenTick(); if(S.playing){ S.packets.forEach(p=>advance(p,dt)); drawPackets(); if(S.selPacket!=null) renderPanel(); } requestAnimationFrame(tick); }
-function advance(p,dt){ const hs=hopsOf(p.flow); if(!hs.length)return; if(p.pause>0){p.pause-=dt;return;} const h=hs[p.hop]; if(!h||!h.path){p.hop=(p.hop+1)%hs.length;return;} p.t+=dt*p.speed*(320/Math.max(120,h.path.len)); if(p.t>=1){p.t=0;p.hop=(p.hop+1)%hs.length;p.pause=(p.hop===0?1.2:.35);} }
+function advance(p,dt){ const hs=hopsOf(p.flow); if(!hs.length)return; if(p.pause>0){p.pause-=dt;return;} const h=hs[p.hop]; if(!h||!h.path){p.hop=(p.hop+1)%hs.length;return;} p.t+=dt*p.speed*(320/Math.max(120,h.path.len)); if(p.t>=1){p.t=0;p.hop=(p.hop+1)%hs.length;p.pause=(p.hop===0?1.6:.75);} }
 function stepOnce(){ S.playing=false; syncFlowBtn(); let i=S.selPacket??0; const p=S.packets[i]; if(!p)return; const hs=hopsOf(p.flow); p.hop=(p.hop+1)%hs.length; p.t=.5; p.pause=0; S.selPacket=i; drawPackets(); renderPanel(); }
 function syncFlowBtn(){ document.getElementById('btnFlow').textContent = S.playing?'‖ Pause':'▸ Play'; }
 requestAnimationFrame(tick);

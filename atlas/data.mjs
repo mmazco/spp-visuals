@@ -63,7 +63,7 @@ export const NODES = [
   { id: 'P', code: 'P', name: 'Pool contract', short: 'POOL', group: 'pool', gx: 8, gy: 4.5, w: 3, d: 3, h: 72, kind: 'tall',
     one: 'The shared pool where funds live and every operation lands.',
     what: 'One contract holds everyone’s deposits. Your deposit becomes a note in the pool; transfers spend your notes and mint new ones for the recipient; withdrawals move value back to the public ledger.',
-    how: 'Soroban contract, deployed on testnet with <mark>embedded contract IDs</mark> so the SDK works with minimal config. Testnet runs XLM and EURC pools. Checks every operation’s proof, association-set membership, and nullifiers before applying it.',
+    how: 'Stellar Smart Contract (Soroban), deployed on testnet with <mark>embedded contract IDs</mark> so the SDK works with minimal config. Testnet runs XLM and EURC pools. Checks every operation’s proof, association-set membership, and nullifiers before applying it.',
     steps: [['Accept', 'Take a deposit, transfer, or withdrawal request.'], ['Verify', 'Groth16 proof → verifier; membership → ASP; freshness → nullifier set.'], ['Apply', 'Insert new commitments, record nullifiers, settle ext_amount.']],
     cond: [] },
   { id: 'T', code: 'T', name: 'Note tree', short: 'NOTE TREE', group: 'pool', gx: 13, gy: 6.5, w: 2.5, d: 2.5, h: 26, kind: 'store',
@@ -167,7 +167,7 @@ export const CH = [
 ];
 
 export const HOW_HTML = `<div class="eyebrow">Stellar Private Payments · developer preview</div><h1 class="t">How it's built</h1><div class="sub">a privacy pool on public rails, by Nethermind</div>
-<p>A Soroban pool contract holds the funds; a Groth16 verifier gates every operation, running on the <mark>cryptographic host functions</mark> (BN254, Poseidon) added to Stellar in Protocols 25 (X-Ray) and 26 (Yardstick). Privacy lives in the layers above the base ledger — never in the base.</p>
+<p>A Stellar Smart Contract (Soroban) pool holds the funds; a Groth16 verifier gates every operation, running on the <mark>cryptographic host functions</mark> (BN254, Poseidon) added to Stellar in Protocols 25 (X-Ray) and 26 (Yardstick). Privacy lives in the layers above the base ledger — never in the base.</p>
 <h3 class="sec">Layering</h3>
 <p><b>Application</b> — the SPP pool contract (and, in the other lane, Confidential Token).<br><b>Verifier</b> — onchain Groth16 verifier: accepts a compact proof, confirms validity without re-running the computation.<br><b>Host functions</b> — protocol-level curve ops and Poseidon hashes.<br><b>Base ledger</b> — fully public, always.</p>
 <h3 class="sec">Repo</h3><pre>stellar-private-payments/

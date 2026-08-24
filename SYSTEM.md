@@ -83,7 +83,7 @@ Stellar Private Payments (SPP) is a privacy pool: users deposit an asset into a 
 
 **What it does.** One contract holds everyone’s deposits. Your deposit becomes a note in the pool; transfers spend your notes and mint new ones for the recipient; withdrawals move value back to the public ledger.
 
-**How it's built.** Soroban contract, deployed on testnet with **embedded contract IDs** so the SDK works with minimal config. Testnet runs XLM and EURC pools. Checks every operation’s proof, association-set membership, and nullifiers before applying it.
+**How it's built.** Stellar Smart Contract (Soroban), deployed on testnet with **embedded contract IDs** so the SDK works with minimal config. Testnet runs XLM and EURC pools. Checks every operation’s proof, association-set membership, and nullifiers before applying it.
 
 **Steps in execution.**
 
