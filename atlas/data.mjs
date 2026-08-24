@@ -9,7 +9,7 @@ export const META = {
   buildCmd: 'node atlas/build.mjs',
   stats: [
     { k: 'System', v: 'Stellar Private Payments Developer Preview (testnet)' },
-    { k: 'Developed by', v: 'Nethermind' },
+    { k: 'Implemented by', v: 'Nethermind' },
   ],
   intro: `_**This file is the living source of truth for the visual.** The interactive atlas is built from the same data._`,
   onePara: `Stellar Private Payments (SPP) is a privacy pool: users deposit an asset into a shared pool contract, hold a private balance as cryptographic notes, and pay each other inside the pool. Deposits in and withdrawals out are public on the ledger; the link between them, and the counterparties and amounts of transfers inside, are kept private from the public. Every operation carries a zero-knowledge proof, and every pool is deployed with compliance controls: a key-based association set (block-list, allow-list, or both) and optional view keys for audit. Live on testnet, unaudited, developer preview.`,

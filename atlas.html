@@ -20,14 +20,14 @@
 *{box-sizing:border-box}
 html,body{height:100%;margin:0}
 body{background:var(--paper);color:var(--ink);font-family:var(--mono);font-size:13px;line-height:1.55;overflow:hidden}
-#app{display:grid;grid-template-rows:52px 1fr 30px;height:100vh;min-height:600px}
+#app{display:grid;grid-template-rows:60px 1fr 30px;height:100vh;min-height:600px}
 #top{display:flex;align-items:stretch;border-bottom:1.5px solid var(--ink);overflow:hidden}
-.stat{padding:6px 14px 4px;border-right:1.5px solid var(--ink);min-width:0;white-space:nowrap}
+.stat{padding:8px 14px 6px;border-right:1.5px solid var(--ink);min-width:0;white-space:nowrap}
 .stat .k{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
 .stat .v{font-size:15px;font-variant-numeric:tabular-nums}
 .stat.grow{flex:1;border-right:none;overflow:hidden}
-.stat.long{white-space:normal;max-width:250px}
-.stat.long .v{font-size:11.5px;line-height:1.3}
+.stat.long{white-space:normal;max-width:330px}
+.stat.long .v{font-size:13.5px;line-height:1.3;font-weight:500}
 #controls{display:flex;gap:8px;align-items:center;padding:0 14px;border-left:1.5px solid var(--ink)}
 button.ctl{font:inherit;font-size:11px;letter-spacing:.06em;text-transform:uppercase;background:var(--paper);color:var(--ink);border:1.5px solid var(--ink);padding:5px 10px;cursor:pointer;box-shadow:2px 2px 0 var(--ink);white-space:nowrap}
 button.ctl:hover{background:var(--face)}
@@ -166,7 +166,7 @@ const CH = [{"id":"in","title":"Public in","reveal":["W","P","L"],"lede":"Funds 
 const HOW_HTML = "<div class=\"eyebrow\">Stellar Private Payments · developer preview</div><h1 class=\"t\">How it's built</h1><div class=\"sub\">a privacy pool on public rails, by Nethermind</div>\n<p>A Stellar Smart Contract (Soroban) pool holds the funds; a Groth16 verifier gates every operation, running on the <mark>cryptographic host functions</mark> (BN254, Poseidon) added to Stellar in Protocols 25 (X-Ray) and 26 (Yardstick). Privacy lives in the layers above the base ledger — never in the base.</p>\n<h3 class=\"sec\">Layering</h3>\n<p><b>Application</b> — the SPP pool contract (and, in the other lane, Confidential Token).<br><b>Verifier</b> — onchain Groth16 verifier: accepts a compact proof, confirms validity without re-running the computation.<br><b>Host functions</b> — protocol-level curve ops and Poseidon hashes.<br><b>Base ledger</b> — fully public, always.</p>\n<h3 class=\"sec\">Repo</h3><pre>stellar-private-payments/\n  contracts/   pool · verifier · ASP · key registry\n  circuits/    Circom circuits (Groth16 over BN254)\n  sdk/web/     TS/JS, prebuilt WASM (npm)\n  sdk/native/  Rust\n  cli/         spp</pre>\n<h3 class=\"sec\">Try it</h3><p>Hosted demo + Freighter on testnet, <code>npm i stellar-private-payments@alpha</code>, or the one-line <code>spp</code> CLI install. Watch <code>ext_amount</code> on stellar.expert.</p>";
 const CHANGELOG = [{"date":"2026-08-23 18:05","note":"Precision pass, verified against the SPP repo source: commitments are <mark>Poseidon2</mark> hashes of amount, owner key, and blinding; nullifier wording tightened to match the transaction circuit; <code>circuits/</code> added to the repo sketch."},{"date":"2026-08-23 17:40","note":"Reader-facing cleanup: question tracking removed, header retitled to Developer Preview, hover tooltip fix."},{"date":"2026-08-23 17:10","note":"First published, built from the Developer Preview blog draft (last updated 2026-08-23)."}];
 const DECISIONS_HTML = "<li><b>Privacy target.</b> Counterparty privacy — who paid whom inside the pool — not just confidential amounts (that lane is Confidential Token)</li><li><b>Proof system.</b> Groth16, verified onchain via the Protocol 25/26 cryptographic host functions</li><li><b>Compliance model.</b> Key-based association sets, configurable per pool at deploy: block-list, allow-list, or both</li><li><b>Auditability.</b> Optional global view keys for administrators, user view keys for note-scoped selective disclosure</li><li><b>Network.</b> Testnet only for the preview; contracts unaudited, not approved for mainnet</li>";
-const STATS = [{"k":"System","v":"Stellar Private Payments Developer Preview (testnet)"},{"k":"Developed by","v":"Nethermind"}];
+const STATS = [{"k":"System","v":"Stellar Private Payments Developer Preview (testnet)"},{"k":"Implemented by","v":"Nethermind"}];
 const TITLE = "Stellar Private Payments";
 
 /* ---------------- CHAPTERS (progressive disclosure) ---------------- */

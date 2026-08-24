@@ -20,14 +20,14 @@
 *{box-sizing:border-box}
 html,body{height:100%;margin:0}
 body{background:var(--paper);color:var(--ink);font-family:var(--mono);font-size:13px;line-height:1.55;overflow:hidden}
-#app{display:grid;grid-template-rows:52px 1fr 30px;height:100vh;min-height:600px}
+#app{display:grid;grid-template-rows:60px 1fr 30px;height:100vh;min-height:600px}
 #top{display:flex;align-items:stretch;border-bottom:1.5px solid var(--ink);overflow:hidden}
-.stat{padding:6px 14px 4px;border-right:1.5px solid var(--ink);min-width:0;white-space:nowrap}
+.stat{padding:8px 14px 6px;border-right:1.5px solid var(--ink);min-width:0;white-space:nowrap}
 .stat .k{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
 .stat .v{font-size:15px;font-variant-numeric:tabular-nums}
 .stat.grow{flex:1;border-right:none;overflow:hidden}
-.stat.long{white-space:normal;max-width:250px}
-.stat.long .v{font-size:11.5px;line-height:1.3}
+.stat.long{white-space:normal;max-width:330px}
+.stat.long .v{font-size:13.5px;line-height:1.3;font-weight:500}
 #controls{display:flex;gap:8px;align-items:center;padding:0 14px;border-left:1.5px solid var(--ink)}
 button.ctl{font:inherit;font-size:11px;letter-spacing:.06em;text-transform:uppercase;background:var(--paper);color:var(--ink);border:1.5px solid var(--ink);padding:5px 10px;cursor:pointer;box-shadow:2px 2px 0 var(--ink);white-space:nowrap}
 button.ctl:hover{background:var(--face)}
