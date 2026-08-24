@@ -21,6 +21,7 @@ export const META = {
 };
 
 export const CHANGELOG = [
+  { date: '2026-08-24 01:08', note: 'New palette: off-white paper with black ink (matching dark theme); larger header title; credit reads Implemented by Nethermind; packet animation slowed for readability.' },
   { date: '2026-08-23 18:05', note: 'Precision pass, verified against the SPP repo source: commitments are <mark>Poseidon2</mark> hashes of amount, owner key, and blinding; nullifier wording tightened to match the transaction circuit; <code>circuits/</code> added to the repo sketch.' },
   { date: '2026-08-23 17:40', note: 'Reader-facing cleanup: question tracking removed, header retitled to Developer Preview, hover tooltip fix.' },
   { date: '2026-08-23 17:10', note: 'First published, built from the Developer Preview blog draft (last updated 2026-08-23).' },
