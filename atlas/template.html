@@ -104,6 +104,9 @@ details[open] summary::before{content:'−'}
 details summary::-webkit-details-marker{display:none}
 details > *:not(summary){margin-top:8px}
 #hint{border-top:1.5px solid var(--ink);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);display:flex;align-items:center;padding:0 14px;gap:14px;overflow:hidden;white-space:nowrap}
+#hint .credit{margin-left:auto}
+#hint .credit a{color:var(--ink-2);text-decoration:underline;text-underline-offset:2px}
+#hint .credit a:hover{color:var(--ink)}
 .q{padding-left:0;list-style:none}
 .q li{position:relative;padding-left:18px}
 .q li::before{content:'?';position:absolute;left:0;top:0;color:var(--ink-2)}
@@ -154,7 +157,7 @@ details > *:not(summary){margin-top:8px}
     </aside>
   </div>
   <div id="hint">
-    <span>enter / ] next chapter</span><span>[ back</span><span>hover to read</span><span>click to pin</span><span>→ go inside</span><span>← come out</span><span>click a dot to inspect its packet</span>
+    <span>enter / ] next chapter</span><span>[ back</span><span>hover to read</span><span>click to pin</span><span>→ go inside</span><span>← come out</span><span>click a dot to inspect its packet</span><span class="credit">made with <a href="https://github.com/inkboard/system-atlas" target="_blank" rel="noopener">system-atlas</a> · MIT</span>
   </div>
 </div>
 
