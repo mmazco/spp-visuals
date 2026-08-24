@@ -157,7 +157,7 @@ details > *:not(summary){margin-top:8px}
     </aside>
   </div>
   <div id="hint">
-    <span>enter / ] next chapter</span><span>[ back</span><span>hover to read</span><span>click to pin</span><span>→ go inside</span><span>← come out</span><span>click a dot to inspect its packet</span><span class="credit">made with <a href="https://github.com/inkboard/system-atlas" target="_blank" rel="noopener">system-atlas</a> · MIT</span>
+    <span>enter / ] next chapter</span><span>[ back</span><span>hover to read</span><span>click to pin</span><span>→ go inside</span><span>← come out</span><span>click a dot to inspect its packet</span><span class="credit">made with <a href="https://github.com/inkboard/system-atlas" target="_blank" rel="noopener">system-atlas</a></span>
   </div>
 </div>
 
@@ -367,6 +367,7 @@ function nextCh(){ gotoCh(S.ch+1); } function prevCh(){ gotoCh(S.ch-1); }
 function goInside(id){ const n=byId[id]; if(!n||!n.steps)return; S.view='inside'; S.inside=id; S.selected='s0'; buildInsideScene(n); initPackets(); fitView(true); renderIndex(); render(); renderPanel(); }
 function comeOut(){ const was=S.inside; S.view='world'; S.inside=null; buildWorldScene(); initPackets(); S.selected=was; fitView(true); renderIndex(); render(); renderPanel(); }
 function orderList(){ return S.view==='world'?sceneNodes.map(n=>n.id):sceneNodes.map(n=>n.id); }
+window.addEventListener('load',()=>{try{window.focus()}catch(e){}});
 document.addEventListener('keydown',e=>{ if(e.target.tagName==='INPUT')return; const L=orderList(); let i=L.indexOf(S.selected);
   if(e.key==='ArrowDown'){e.preventDefault();select(L[Math.min(L.length-1,i+1)]);}
   else if(e.key==='ArrowUp'){e.preventDefault();select(L[Math.max(0,i-1)]);}
