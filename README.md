@@ -1,4 +1,4 @@
-# SPP Visuals — Stellar Private Payments Atlas
+# SPP Architecture Visual — Stellar Private Payments Atlas
 
 Interactive isometric atlas explaining [Stellar Private Payments](https://github.com/NethermindEth/stellar-private-payments), built as a companion visual for the Developer Preview blog post.
 
